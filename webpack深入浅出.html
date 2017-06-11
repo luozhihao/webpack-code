@@ -1,0 +1,344 @@
+
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+
+    <title>webpack深入浅出 - @演说.io</title>
+
+    <meta name="keywords" content="演说，yanshuo, yanshuo.io, 演说.io, 空中演说, 展示文稿, HTML 展示文稿, Web 展示文稿" />
+  	  <meta name="description" content="创作真正跨平台的 HTML5 展示文稿，让你的分享到达世界的任何一个角落" />
+
+  		<meta name="apple-mobile-web-app-capable" content="yes">
+  		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+  		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+  		<!-- Reveal base style -->
+  		<link rel="stylesheet" href="https://yanshuo.io/assets/player/css/reveal.min.css">
+
+  		<!-- Yanshuo.io seed style -->
+  		<link rel="stylesheet" href="https://yanshuo.io/assets/player/atcss/at-block.min.css">
+  		<link rel="stylesheet" href="https://yanshuo.io/assets/player/atcss/at-hljs-theme-bundler.min.css">
+  		<link rel="stylesheet" href="https://yanshuo.io/assets/player/atcss/at-reveal-default-theme.min.css">
+
+  		<!-- Source Sans Web Fonts -->
+  		<link rel="stylesheet" href="https://yanshuo.io/assets/player/lib/font/source-sans-pro/source-sans-pro.css">
+
+      <!-- Printing and PDF exports -->
+      <script>
+        var link = document.createElement( 'link' );
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = window.location.search.match( /print-pdf/gi ) ? 'https://yanshuo.io/assets/player//css/print/pdf.css' : '';
+        document.getElementsByTagName( 'head' )[0].appendChild( link );
+      </script>
+
+      <!--[if lt IE 9]>
+  		<script src="lib/js/html5shiv.js"></script>
+  		<![endif]-->
+
+  		<!-- style for "critical path" -->
+  		<style>
+  	  </style>
+  </head>
+  <body>
+    <!-- TODO: a lightweighted loading -->
+
+    <!-- main slides -->
+    <div id="YS" class="at-code-lh-12" style="width:100%;height:100%;" data-reveal-theme="white" data-highlight-theme="zenburn" data-ys-title="webpack深入浅出" data-ys-user="劳卜" data-ys-transition="slide" data-ys-backgroundTransition="default" data-ys-transitionSpeed="default" data-ys-fv="2"><style>
+
+  /*********************************************
+   * THEME: white
+   *********************************************/
+
+  /*********************************************
+   * Yanshuo Inject
+   *********************************************/
+
+   .hljs{
+     
+   }
+
+  /*********************************************
+   * GLOBAL STYLES
+   *********************************************/
+
+  body, .reveal, .reveal-preview {
+  	background-color: #fff;
+  }
+
+  .reveal, .reveal-preview  {
+    
+    color: #222;
+  }
+
+  ::selection {
+  	background: rgb(115, 164, 232);
+  }
+
+  /*********************************************
+   * HEADERS
+   *********************************************/
+
+  .reveal h1, .reveal-preview h1,
+  .reveal h2, .reveal-preview h2,
+  .reveal h3, .reveal-preview h3,
+  .reveal h4, .reveal-preview h4,
+  .reveal h5, .reveal-preview h5,
+  .reveal h6, .reveal-preview h6 {
+    
+  	color: #222;
+  }
+
+
+  /*********************************************
+   * LINKS
+   *********************************************/
+
+  .reveal a, .reveal-preview a {
+  	color: #2a76dd;
+    text-decoration: undefined;
+  }
+  	.reveal a:hover, .reveal-preview a:hover {
+  		color: rgb(101, 155, 230);
+  	}
+
+
+  /*********************************************
+   * NAVIGATION CONTROLS
+   *********************************************/
+
+  .reveal .controls .navigate-left,
+  .reveal .controls .navigate-left.enabled {
+  	border-right-color: #2a76dd;
+  }
+
+  .reveal .controls .navigate-right,
+  .reveal .controls .navigate-right.enabled {
+  	border-left-color: #2a76dd;
+  }
+
+  .reveal .controls .navigate-up,
+  .reveal .controls .navigate-up.enabled {
+  	border-bottom-color: #2a76dd;
+  }
+
+  .reveal .controls .navigate-down,
+  .reveal .controls .navigate-down.enabled {
+  	border-top-color: #2a76dd;
+  }
+
+  .reveal .controls .navigate-left.enabled:hover {
+  	border-right-color: rgb(101, 155, 230);
+  }
+
+  .reveal .controls .navigate-right.enabled:hover {
+  	border-left-color: rgb(101, 155, 230);
+  }
+
+  .reveal .controls .navigate-up.enabled:hover {
+  	border-bottom-color: rgb(101, 155, 230);
+  }
+
+  .reveal .controls .navigate-down.enabled:hover {
+  	border-top-color: rgb(101, 155, 230);
+  }
+
+  /*********************************************
+   * PROGRESS BAR
+   *********************************************/
+
+  .reveal .progress span {
+  	background: #2a76dd;
+
+</style><div class="reveal"><div class="slides"><section data-notes="" data-background-video-loop="true" data-background-video-muted="true" data-background-color="" data-transition="slide-in slide-out"><div style="left:164.97883597883595px;top:198.83597883597884px;width:637.3015873015873px;height:auto;" class="at-block at-block--pure"><article class="at-block-content"><h2>webpack深入浅出</h2></article></div><div style="left:323.7089947089947px;top:312.38095238095235px;width:318.5185185185186px;height:auto0;" class="at-block at-block--pure"><article class="at-block-content"><h3><a href="http://yanshuo.io">@商旅前端组</a></h3></article></div></section><section data-notes="" data-background-video-loop="true" data-background-video-muted="true" data-background-color="" data-transition="slide-in slide-out"><div style="width:732px;height:504px;left:114px;top:98px;" class="at-block at-block--pure"><article class="at-block-content"><img src=http://images.cnblogs.com/cnblogs_com/luozhihao/933293/o_task.png /></article></div></section><section data-notes="" data-background-video-loop="true" data-background-video-muted="true" data-background-color="" data-transition="slide-in slide-out"><div style="left:94.71268237934905px;top:86.90609801720913px;width:800px;" class="at-block at-block--pure"><article class="at-block-content"><h3>什么是webpack？</h3></article></div><div style="left:89.47512158623269px;top:436.0493827160494px;width:800px;" class="at-block at-block--pure"><article class="at-block-content"><p>webpack是一个集前端<span style="color:#E27300">自动化</span>、<span style="color:#E27300">模块化</span>、<span style="color:#E27300">组件化</span>于一体的<span style="color:#E27300">可拓展系统</span>。</p></article></div><div style="left:339.5686494575383px;top:272.37560793116353px;width:305.0505050505051px;height:auto;" class="at-block at-block--pure"><article class="at-block-content"><p>打包工具？</p><p>构建工具？</p></article></div></section><section data-notes="" data-background-video-loop="true" data-background-video-muted="true" data-background-color="" data-transition="slide-in slide-out"><div style="width:921.9603441825662px;height:378.00374111485223px;left:19.674523007856358px;top:170.36681631126075px;" class="at-block at-block--pure"><article class="at-block-content"><img src=https://doc.webpack-china.org/bf093af83ee5548ff10fef24927b7cd2.svg /></article></div><div style="left:94.71268237934905px;top:86.90609801720913px;width:800px;" class="at-block at-block--pure"><article class="at-block-content"><h3>官方图示</h3></article></div></section><section data-notes="" data-background-video-loop="true" data-background-video-muted="true" data-background-color="" data-transition="slide-in slide-out"><div style="width:803.3587729143285px;height:363.29364304146253px;left:86.47175230863175px;top:193.02268872232727px;" class="at-block at-block--pure"><article class="at-block-content"><img src=https://dn-mhke0kuv.qbox.me/119a28f03372c5bae695.png?_=6287820 /></article></div><div style="left:81.61878039655818px;top:72.50280583613917px;width:800px;" class="at-block at-block--pure"><article class="at-block-content"><h3>webpack入门</h3></article></div></section><section data-notes="" data-background-video-loop="true" data-background-video-muted="true" data-background-color="" data-transition="slide-in slide-out"><div style="left:29.24317246539469px;top:175.46950991395437px;width:873.3258511036289px;height:500px;" class="at-block at-block--pure"><article class="at-block-content MarkdownBlock"><pre class="hljs"><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">html</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">title</span>&gt;</span>传统项目<span class="hljs-tag">&lt;/<span class="hljs-name">title</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"https://code.jquery.com/jquery-2.2.4.js"</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"app/index.js"</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span>
+</code></pre>
+</article></div><div style="left:47.57463524130191px;top:37.994762439206895px;width:800px;" class="at-block at-block--pure"><article class="at-block-content"><h3>传统项目中的问题</h3></article></div><div style="left:30.552562663673775px;top:494.9607182940515px;width:874.635241301908px;height:210.62476618032179px;" class="at-block at-block--pure"><article class="at-block-content MarkdownBlock"><pre class="hljs"><code class="lang-javascript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">main</span>(<span class="hljs-params"></span>) </span>{
+    $(<span class="hljs-string">'body'</span>).html(<span class="hljs-string">'hello world!'</span>);
+}
+
+main();
+</code></pre>
+</article></div><div style="left:29.243172465394693px;top:441.2869435091657px;width:800px;" class="at-block at-block--pure"><article class="at-block-content"><p style="text-align:left"><span style="color:#E27300"><span style="font-size:24px">app/index.js</span></span></p></article></div><div style="left:29.62439206883652px;top:117.39244294799852px;width:800px;" class="at-block at-block--pure"><article class="at-block-content"><p style="text-align:left"><span style="color:#E27300"><span style="font-size:24px">index.html</span></span></p></article></div></section><section data-notes="" data-background-video-loop="true" data-background-video-muted="true" data-background-color="" data-transition="slide-in slide-out"><div style="left:47.57463524130191px;top:37.994762439206895px;width:800px;" class="at-block at-block--pure"><article class="at-block-content"><h3>安装webpack</h3></article></div><div style="left:22.69622147399926px;top:137.49719416386083px;width:920.463898241676px;height:107.18294051627387px;" class="at-block at-block--pure"><article class="at-block-content MarkdownBlock"><pre class="hljs"><code class="lang-javascript"><span class="hljs-keyword">mkdir</span> demo &amp;&amp; <span class="hljs-keyword">cd</span> demo <span class="hljs-comment">// 新建demo文件夹并打开</span>
+npm init <span class="hljs-comment">// 初始化npm，生成package.json配置文件</span>
+npm install --<span class="hljs-keyword">save</span>-dev webpack <span class="hljs-comment">// 安装webpack2版本，mac系统可能需要添加sudo命令</span>
+</code></pre>
+</article></div><div style="left:22.221099887766563px;top:295.4582865693976px;width:920.463898241676px;height:189.67452300785635px;" class="at-block at-block--pure"><article class="at-block-content MarkdownBlock"><pre class="hljs"><code class="lang-javascript">npm install --<span class="hljs-keyword">save</span> jquery <span class="hljs-comment">// 安装jQuery</span>
+</code></pre>
+</article></div><div style="left:217.41414141414137px;top:477.9498690609802px;width:489.6745230078564px;height:auto00;" class="at-block at-block--pure"><article class="at-block-content"><p><em>--&gt; &nbsp; package.json文件介绍</em></p></article></div></section><section data-notes="" data-background-video-loop="true" data-background-video-muted="true" data-background-color="" data-transition="slide-in slide-out"><div style="left:29.62439206883652px;top:117.39244294799852px;width:800px;" class="at-block at-block--pure"><article class="at-block-content"><p style="text-align:left"><span style="color:#E27300"><span style="font-size:24px">改变后的index.html</span></span></p></article></div><div style="left:47.57463524130191px;top:37.994762439206895px;width:800px;" class="at-block at-block--pure"><article class="at-block-content"><h3>改变</h3></article></div><div style="left:29.243172465394693px;top:175.46950991395437px;width:873.3258511036289px;height:500px;" class="at-block at-block--pure"><article class="at-block-content MarkdownBlock"><pre class="hljs"><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">html</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">title</span>&gt;</span>webpack项目<span class="hljs-tag">&lt;/<span class="hljs-name">title</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"dist/bundle.js"</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span>
+</code></pre>
+</article></div><div style="left:29.243172465394693px;top:441.2869435091657px;width:800px;" class="at-block at-block--pure"><article class="at-block-content"><p style="text-align:left"><span style="color:#E27300"><span style="font-size:24px">改变后的app/index.js</span></span></p></article></div><div style="left:31.24317246539469px;top:494.9607182940515px;width:874.635241301908px;height:210.62476618032179px;" class="at-block at-block--pure"><article class="at-block-content MarkdownBlock"><pre class="hljs"><code class="lang-javascript"><span class="hljs-keyword">var</span> $ = <span class="hljs-built_in">require</span>(<span class="hljs-string">'jquery'</span>);
+
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">main</span>(<span class="hljs-params"></span>) </span>{
+    $(<span class="hljs-string">'body'</span>).html(<span class="hljs-string">'hello world!'</span>);
+}
+
+main();
+</code></pre>
+</article></div></section><section data-notes="" data-background-video-loop="true" data-background-video-muted="true" data-background-color="" data-transition="slide-in slide-out"><div style="left:81.67631072161439px;top:273.55871413477365px;width:800px;height:151.8011594168595px;" class="at-block at-block--pure"><article class="at-block-content MarkdownBlock"><pre class="hljs"><code>运行命令：webpack app/index<span class="hljs-selector-class">.js</span> dist/bundle.js
+</code></pre>
+</article></div></section><section data-notes="" data-background-video-loop="true" data-background-video-muted="true" data-background-color="" data-transition="slide-in slide-out"><div style="left:47.57463524130191px;top:37.994762439206895px;width:800px;" class="at-block at-block--pure"><article class="at-block-content"><h3>拆分</h3></article></div><div style="left:29.62439206883652px;top:117.39244294799852px;width:800px;" class="at-block at-block--pure"><article class="at-block-content"><p style="text-align:left"><span style="color:#E27300"><span style="font-size:24px">app/index.js</span></span></p></article></div><div style="left:27.933782267115607px;top:175.46950991395437px;width:873.3258511036289px;height:500px;" class="at-block at-block--pure"><article class="at-block-content MarkdownBlock"><pre class="hljs"><code class="lang-javascript"><span class="hljs-keyword">var</span> $ = <span class="hljs-built_in">require</span>(<span class="hljs-string">'jquery'</span>);
+<span class="hljs-keyword">var</span> str = <span class="hljs-built_in">require</span>(<span class="hljs-string">'./hello.js'</span>);
+
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">main</span>(<span class="hljs-params"></span>) </span>{
+    $(<span class="hljs-string">'body'</span>).html(str);
+}
+
+main();
+</code></pre>
+</article></div><div style="left:30.45866068088291px;top:425.9334081556304px;width:800px;" class="at-block at-block--pure"><article class="at-block-content"><p style="text-align:left"><span style="color:#E27300"><span style="font-size:24px">app/hello.js</span></span></p></article></div><div style="left:29.24317246539469px;top:494.9607182940515px;width:874.635241301908px;height:210.62476618032179px;" class="at-block at-block--pure"><article class="at-block-content MarkdownBlock"><pre class="hljs"><code class="lang-javascript">var <span class="hljs-built_in">str</span> = 'hello world!';
+
+<span class="hljs-function"><span class="hljs-keyword">module</span>.<span class="hljs-title">exports</span> =</span> <span class="hljs-built_in">str</span>;
+</code></pre>
+</article></div></section><section data-notes="" data-background-video-loop="true" data-background-video-muted="true" data-background-color="" data-transition="slide-in slide-out"><div style="left:47.57463524130191px;top:37.994762439206895px;width:800px;" class="at-block at-block--pure"><article class="at-block-content"><h3>压缩与监听</h3></article></div><div style="left:92.66920523335286px;top:187.9144698301113px;width:800px;height:57.11775043936734px;" class="at-block at-block--pure"><article class="at-block-content MarkdownBlock"><pre class="hljs"><code class="lang-js">webpack -<span class="hljs-selector-tag">p</span>  app/index<span class="hljs-selector-class">.js</span> dist/bundle.js
+</code></pre>
+</article></div><div style="left:90.36692052333528px;top:296.3327475102519px;width:800px;height:57.11775043936734px;" class="at-block at-block--pure"><article class="at-block-content MarkdownBlock"><pre class="hljs"><code class="lang-js">webpack -w  app/index<span class="hljs-selector-class">.js</span> dist/bundle.js
+</code></pre>
+</article></div></section><section data-notes="" data-background-video-loop="true" data-background-video-muted="true" data-background-color="" data-transition="slide-in slide-out"><div style="left:356.59072203516644px;top:48.46988402543959px;width:200.29928918817814px;height:auto;" class="at-block at-block--pure"><article class="at-block-content"><h3>可配置</h3></article></div><div style="left:61.97792742237187px;top:191.1821922933034px;width:800px;height:259.07220351664796px;" class="at-block at-block--pure"><article class="at-block-content MarkdownBlock"><pre class="hljs"><code class="lang-javascript"><span class="hljs-keyword">var</span> path = <span class="hljs-built_in">require</span>(<span class="hljs-string">'path'</span>);
+
+<span class="hljs-built_in">module</span>.exports = {
+  <span class="hljs-attr">entry</span>: <span class="hljs-string">'./app/index.js'</span>,
+  <span class="hljs-attr">output</span>: {
+    <span class="hljs-attr">filename</span>: <span class="hljs-string">'bundle.js'</span>,
+    <span class="hljs-attr">path</span>: path.resolve(__dirname, <span class="hljs-string">'dist'</span>)
+  }
+}
+</code></pre>
+</article></div><div style="left:62.3591470258137px;top:131.79573512906848px;width:800px;" class="at-block at-block--pure"><article class="at-block-content"><p style="text-align:left"><span style="color:#E27300"><span style="font-size:24px">1. 新建webpack.config.js</span></span></p></article></div><div style="left:61.57463524130191px;top:457.3587729143284px;width:800px;" class="at-block at-block--pure"><article class="at-block-content"><p style="text-align:left"><span style="color:#E27300"><span style="font-size:24px">2. 运行命令行</span></span></p></article></div><div style="left:64.12158623269734px;top:514.1264496820052px;width:800px;height:124.20501309390198px;" class="at-block at-block--pure"><article class="at-block-content MarkdownBlock"><pre class="hljs"><code class="lang-javascript">webpack --config webpack<span class="hljs-selector-class">.config</span><span class="hljs-selector-class">.js</span>
+webpack
+</code></pre>
+</article></div></section><section data-notes="" data-background-video-loop="true" data-background-video-muted="true" data-background-color="" data-transition="slide-in slide-out"><div style="left:81.61878039655818px;top:72.50280583613917px;width:800px;" class="at-block at-block--pure"><article class="at-block-content"><h3>webpack进阶</h3></article></div><div style="width:694.0740740740741px;height:199.94427454977915px;left:141.38888888888889px;top:246.87037037037038px;" class="at-block at-block--pure"><article class="at-block-content"><img src=http://images.cnblogs.com/cnblogs_com/luozhihao/933293/o_webpack.png /></article></div></section><section data-notes="" data-background-video-loop="true" data-background-video-muted="true" data-background-color="" data-transition="slide-in slide-out"><div style="left:356.59072203516644px;top:48.46988402543959px;width:200.29928918817814px;height:auto;" class="at-block at-block--pure"><article class="at-block-content"><h3>缓存处理</h3></article></div><div style="left:80.49644594089038px;top:118.43086954198064px;width:800px;height:568.5960130404574px;" class="at-block at-block--pure"><article class="at-block-content MarkdownBlock"><pre class="hljs"><code class="lang-javascript"><span class="hljs-keyword">const</span> path = <span class="hljs-built_in">require</span>(<span class="hljs-string">'path'</span>);
+<span class="hljs-keyword">const</span> HTMLPlugin = <span class="hljs-built_in">require</span>(<span class="hljs-string">'html-webpack-plugin'</span>);
+
+<span class="hljs-built_in">module</span>.exports = {
+
+  ...
+
+  output: {
+    <span class="hljs-attr">path</span>: path.resolve(__dirname, <span class="hljs-string">'dist'</span>),
+    <span class="hljs-attr">filename</span>: <span class="hljs-string">'[name].[chunkhash:5].js'</span> <span class="hljs-comment">// 输出文件名</span>
+  },
+
+  <span class="hljs-attr">plugins</span>: [
+    <span class="hljs-keyword">new</span> HTMLPlugin({
+      <span class="hljs-attr">title</span>: <span class="hljs-string">'webpack项目'</span>,
+      <span class="hljs-attr">template</span>: <span class="hljs-string">'index.html'</span>
+    }),
+  ]
+
+  ...
+
+}
+</code></pre>
+</article></div></section><section data-notes="" data-background-video-loop="true" data-background-video-muted="true" data-background-color="" data-transition="slide-in slide-out"><div style="left:356.59072203516644px;top:48.46988402543959px;width:200.29928918817814px;height:auto;" class="at-block at-block--pure"><article class="at-block-content"><h3>独立打包</h3></article></div><div style="left:83.14194858639303px;top:114.46261557372668px;width:800px;height:568.5960130404574px;" class="at-block at-block--pure"><article class="at-block-content MarkdownBlock"><pre class="hljs"><code class="lang-javascript"><span class="hljs-keyword">const</span> webpack = <span class="hljs-built_in">require</span>(<span class="hljs-string">'webpack'</span>);
+<span class="hljs-keyword">const</span> path = <span class="hljs-built_in">require</span>(<span class="hljs-string">'path'</span>);
+
+<span class="hljs-built_in">module</span>.exports = {
+
+  ...
+
+  entry: {
+    <span class="hljs-attr">main</span>: <span class="hljs-string">'./app/index.js'</span>, 
+    <span class="hljs-attr">vendor</span>: [<span class="hljs-string">'jquery'</span>], <span class="hljs-comment">// 第三方依赖名</span>
+  },
+
+  <span class="hljs-attr">plugins</span>: [
+    <span class="hljs-keyword">new</span> webpack.optimize.CommonsChunkPlugin({
+      <span class="hljs-attr">names</span>: [<span class="hljs-string">'vendor'</span>, <span class="hljs-string">'manifest'</span>],
+    }),
+  ]
+
+  ...
+
+}
+</code></pre>
+</article></div></section><section data-notes="" data-background-video-loop="true" data-background-video-muted="true" data-background-color="" data-transition="slide-in slide-out"><div style="left:356.59072203516644px;top:48.46988402543959px;width:200.29928918817814px;height:auto;" class="at-block at-block--pure"><article class="at-block-content"><h3>样式分离</h3></article></div><div style="left:63.30067874512319px;top:121.07637218748329px;width:837.0370370370371px;height:568.5960130404574px;" class="at-block at-block--pure"><article class="at-block-content MarkdownBlock"><pre class="hljs"><code class="lang-javascript"><span class="hljs-keyword">const</span> path = <span class="hljs-built_in">require</span>(<span class="hljs-string">'path'</span>);
+<span class="hljs-keyword">const</span> ExtractTextPlugin = <span class="hljs-built_in">require</span>(<span class="hljs-string">'extract-text-webpack-plugin'</span>);
+
+<span class="hljs-built_in">module</span>.exports = {
+
+  ...
+  <span class="hljs-keyword">module</span>: {
+    rules: [{
+      test: <span class="hljs-regexp">/\.css$/</span>,
+      loader: ExtractTextPlugin.extract({fallback: <span class="hljs-string">'style-loader'</span>, use: <span class="hljs-string">'css-loader'</span>})
+    }]
+  },
+  plugins: [
+    <span class="hljs-keyword">new</span> ExtractTextPlugin({
+      filename: <span class="hljs-string">'styles.[hash].css'</span>,
+      allChunks: <span class="hljs-literal">true</span>
+    }),
+  ]
+
+  ...
+
+}
+</code></pre>
+</article></div></section><section data-notes="" data-background-video-loop="true" data-background-video-muted="true" data-background-color="" data-transition="slide-in slide-out"><div style="left:356.59072203516644px;top:48.46988402543959px;width:200.29928918817814px;height:auto;" class="at-block at-block--pure"><article class="at-block-content"><h3>环境变更</h3></article></div><div style="left:63.30067874512319px;top:121.07637218748329px;width:837.0370370370371px;height:452.19389663834096px;" class="at-block at-block--pure"><article class="at-block-content MarkdownBlock"><pre class="hljs"><code class="lang-javascript"><span class="hljs-keyword">module</span>.exports = {
+
+  ...
+
+  plugins: [
+    new webpack.DefinePlugin({
+      <span class="hljs-string">'process.env.NODE_ENV'</span>: <span class="hljs-string">'"product"'</span>,
+    }),
+  ]
+
+  ...
+
+}
+</code></pre>
+</article></div><div style="left:61.80423280423281px;top:486.98412698412693px;width:835.7142857142857px;height:206.34920634920638px;" class="at-block at-block--pure"><article class="at-block-content MarkdownBlock"><pre class="hljs"><code class="lang-javascript">...
+
+"<span class="hljs-selector-tag">scripts</span>": {
+  <span class="hljs-attribute">build</span>: <span class="hljs-string">"rimraf dist &amp;&amp; cross-env NODE_ENV=product webpack"</span>
+}
+
+...
+</code></pre>
+</article></div></section><section data-notes="" data-background-video-loop="true" data-background-video-muted="true" data-background-color="" data-transition="slide-in slide-out"><div style="left:211.24841002618777px;top:48.46988402543959px;width:534.1937897493453px;height:auto0;" class="at-block at-block--pure"><article class="at-block-content"><h3>webpack配置项回顾</h3></article></div><div style="left:85.59133709981168px;top:309.6421845574387px;width:800px;" class="at-block at-block--pure"><article class="at-block-content"><p><span style="color:#E27300"><em><span style="font-size:48px">大家了解哪些？</span></em></span></p></article></div><div style="left:181.51903925014645px;top:530.29095879711px;width:599.062683069713px;height:auto0;" class="at-block at-block--pure"><article class="at-block-content"><p><span style="font-size:26px"><span style="color:#4D4D4D">详细文档：https://doc.webpack-china.org/</span></span></p></article></div></section><section data-notes="" data-background-video-loop="true" data-background-video-muted="true" data-background-color="" data-transition="slide-in slide-out"><div style="left:356.59072203516644px;top:48.46988402543959px;width:200.29928918817814px;height:auto;" class="at-block at-block--pure"><article class="at-block-content"><h3>作业</h3></article></div><div style="left:72.16539738332358px;top:202.23003319664127px;width:800px;" class="at-block at-block--pure"><article class="at-block-content"><p>自己从零开始完成本课程进阶部分的内容</p></article></div><div style="left:64.39543057996485px;top:291.51142355008784px;width:800px;" class="at-block at-block--pure"><article class="at-block-content"><p>在webpack中使用less替换css</p></article></div><div style="left:204.49814489357544px;top:381.6980407472498px;width:542.4380003905487px;height:auto000;" class="at-block at-block--pure"><article class="at-block-content"><p>完成后将代码发布至github</p></article></div></section><section data-notes="" data-background-video-loop="true" data-background-video-muted="true" data-background-color="" data-transition="slide-in slide-out"><div style="left:80px;top:260px;width:800px;" class="at-block at-block--pure"><article class="at-block-content"><h1>END.</h1></article></div></section><section data-notes="" data-background-video-loop="true" data-background-video-muted="true" data-background-color="" data-transition="slide-in slide-out"><div style="left:80.36692052333528px;top:261.0076157000586px;width:800px;" class="at-block at-block--pure"><article class="at-block-content"><p><span style="font-size:72px"><span style="color:#E27300">codeReview环节</span></span></p></article></div></section><style>.at-block{ position:absolute }</style></div></div></div>
+
+    <!-- dependencies -->
+		<script src="https://yanshuo.io/assets/player/lib/js/head.min.js"></script>
+		<script src="https://yanshuo.io/assets/player/js/reveal.min.js"></script>
+
+    <!-- init -->
+    <script>
+      Reveal.initialize({
+        controls: true,
+        history: true,
+        center: false,
+
+        transition:             'slide',
+        backgroundTransition:   'default',
+        transitionSpeed:        'default',
+
+        // no marked.js
+				// no markdown.js
+				// no highlight.js
+				dependencies: [
+					{ src: 'https://yanshuo.io/assets/player/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'https://yanshuo.io/assets/player/plugin/zoom-js/zoom.js', async: true },
+					{ src: 'https://yanshuo.io/assets/player/plugin/notes/notes.js', async: true }
+				]
+      });
+    </script>
+  </body>
+</html>
